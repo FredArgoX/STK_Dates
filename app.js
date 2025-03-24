@@ -1,0 +1,101 @@
+// Define future dates with labels
+const futureDates = [
+    /*
+    {
+        date: new Date("March 24, 2025"),
+        label: "March 24, 2025",
+        assets: "pHEX-L1 <span class='separator'>/</span> pXEN-L2 <span class='separator'>/</span> eHEX-MK" 
+    },
+    */
+    {
+        date: new Date("April 1, 2025"),
+        label: "April 1, 2025",
+        assets: "pXEN-L1"
+    },
+    {
+        date: new Date("May 1, 2025"),
+        label: "May 1, 2025",
+        assets: "pHEX-L2"
+    },
+    {
+        date: new Date("August 1, 2025"),
+        label: "August 1, 2025",
+        assets: "pHEX-L2"
+    },
+    {
+        date: new Date("December 31, 2025"),
+        label: "December 31, 2025",
+        assets: "pHEX-L1 <span class='separator'>/</span> eHEX-L1"
+    },
+    {
+        date: new Date("December 31, 2026"),
+        label: "December 31, 2026",
+        assets: "pHEX-L2 <span class='separator'>/</span> eHEX-L2"
+    },
+    {
+        date: new Date("April 16, 2032"),
+        label: "April 16, 2032",
+        assets: "pHEX-M4 <span class='separator'>/</span> eHEX-M4"
+     }
+];
+
+// Function to calculate progress percentage
+function calculateProgress(futureDate) {
+    const now = new Date(); // Current real-time date
+    const start = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime(); // Today's start date
+    const end = futureDate.getTime(); // Future date
+    const totalDuration = end - start; // Total time span
+    const elapsed = now.getTime() - start; // Elapsed time
+    return Math.max(0, Math.min(100, (elapsed / totalDuration) * 100)); // Ensuring the percentage is between 0 and 100
+}
+
+// Function to create and update progress bars
+function createOrUpdateProgressBars() {
+    const container = document.getElementById("progress-container");
+    container.innerHTML = ""; // Clear previous content to avoid duplication
+    
+    futureDates.forEach(future => {
+        const progressWrapper = document.createElement("div");
+        progressWrapper.innerHTML = `<h1 class="titlex">${future.label}</h1>`;
+        //progressWrapper.classList.add("titlex");
+        
+        const progressBar = document.createElement("div");
+        progressBar.classList.add("progress-bar");
+        
+        const progress = document.createElement("div");
+        progress.classList.add("progress");
+        progress.style.width = calculateProgress(future.date) + "%";
+
+        const assetList = document.createElement("div");
+        assetList.innerHTML = `<h1 class="assets">${future.assets}</h1>`;
+        //assetList.classList.add("assets");
+        
+        progressBar.appendChild(progress);
+        progressWrapper.appendChild(progressBar);
+        container.appendChild(progressWrapper);
+        progressWrapper.appendChild(assetList);
+
+    });
+}
+
+// Initial rendering of progress bars
+createOrUpdateProgressBars();
+
+// Set interval to update progress bars every 10 seconds (10,000 milliseconds)
+setInterval(createOrUpdateProgressBars, 10000);
+
+
+// Footer Social Icons
+const githubBtn = document.querySelector(".github");
+const linkedinBtn = document.querySelector(".linkedin");
+const xBtn = document.querySelector(".x");
+
+githubBtn.addEventListener("click", () => {
+    window.open("https://github.com/FredArgoX", "_blank");
+});
+linkedinBtn.addEventListener("click", () => {
+    window.open("https://www.linkedin.com/in/fredy-arce-data-science/", "_blank");
+});
+xBtn.addEventListener("click", () => {
+    window.open("https://x.com/FredyArgoX", "_blank");
+});
