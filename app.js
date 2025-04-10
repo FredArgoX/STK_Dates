@@ -83,19 +83,3 @@ createOrUpdateProgressBars();
 
 // Set interval to update progress bars every 10 seconds (10,000 milliseconds)
 setInterval(createOrUpdateProgressBars, 10000);
-
-
-// Footer Social Icons
-const githubBtn = document.querySelector(".github");
-const linkedinBtn = document.querySelector(".linkedin");
-const xBtn = document.querySelector(".x");
-
-githubBtn.addEventListener("click", () => {
-    window.open("./index.html", "_blank");
-});
-linkedinBtn.addEventListener("click", () => {
-    window.open("./index.html", "_blank");
-});
-xBtn.addEventListener("click", () => {
-    window.open("./index.html", "_blank");
-});
