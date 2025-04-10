@@ -119,20 +119,3 @@ footer{
     align-items: center;
     justify-content: space-between;
 }
-.social-container{
-    display: flex;
-    flex-direction: row;
-    gap: var(--common-gap);
-}
-.social-icon{
-    background-color: var(--color-a);
-    color: var(--color-c);
-    border-radius: 50%;
-    padding: 1rem;
-    cursor: pointer;
-}
-.social-icon:hover,
-.social-icon:focus{
-    background-color: var(--color-c);
-    color: var(--color-a);
-}
