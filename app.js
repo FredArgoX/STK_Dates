@@ -7,6 +7,7 @@ const futureDates = [
         assets: "pHEX-L1 <span class='separator'>/</span> pXEN-L2 <span class='separator'>/</span> eHEX-MK" 
     },
     */
+   /*
     {
         date: new Date("April 1, 2025"),
         label: "April 1, 2025",
@@ -17,6 +18,7 @@ const futureDates = [
         label: "May 1, 2025",
         assets: "pHEX-L2"
     },
+    */
     {
         date: new Date("August 1, 2025"),
         label: "August 1, 2025",
