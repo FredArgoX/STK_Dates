@@ -19,16 +19,23 @@ const futureDates = [
         assets: "pHEX-L2"
     },
     */
+    /*
     {
         date: new Date("August 1, 2025"),
         label: "August 1, 2025",
         assets: "pHEX-L2"
     },
+    */
     {
         date: new Date("August 30, 2025"),
         label: "August 30, 2025",
         assets: "pHEX-L2"
     },
+    {
+        date: new Date("October 01, 2025"),
+        label: "October 01, 2025",
+        assets: "pHEX-L2"
+    },    
     {
         date: new Date("December 31, 2025"),
         label: "December 31, 2025",
@@ -90,3 +97,4 @@ createOrUpdateProgressBars();
 
 // Set interval to update progress bars every 10 seconds (10,000 milliseconds)
 setInterval(createOrUpdateProgressBars, 10000);
+
