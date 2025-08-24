@@ -44,7 +44,7 @@ const futureDates = [
     {
         date: new Date("June 20, 2026"),
         label: "June 20, 2026",
-        assets: "eXEN-L2"
+        assets: "eHEX-L2 <span class='separator'>/</span> eXEN-L2"
     },
     {
         date: new Date("December 31, 2026"),
