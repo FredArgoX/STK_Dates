@@ -39,7 +39,7 @@ const futureDates = [
     {
         date: new Date("December 31, 2025"),
         label: "December 31, 2025",
-        assets: "pHEX-L1 <span class='separator'>/</span> eHEX-L1"
+        assets: "pHEX-L1 <span class='separator'>/</span> eHEX-L1 <span class='separator'>/</span> pHEX-L2"
     },
     {
         date: new Date("December 31, 2026"),
