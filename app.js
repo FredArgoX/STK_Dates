@@ -42,6 +42,11 @@ const futureDates = [
         assets: "pHEX-L1 <span class='separator'>/</span> eHEX-L1 <span class='separator'>/</span> pHEX-L2"
     },
     {
+        date: new Date("June 20, 2026"),
+        label: "June 20, 2026",
+        assets: "eXEN-L2"
+    },
+    {
         date: new Date("December 31, 2026"),
         label: "December 31, 2026",
         assets: "pHEX-L2 <span class='separator'>/</span> eHEX-L2"
