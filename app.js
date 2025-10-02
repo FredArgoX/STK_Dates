@@ -33,11 +33,7 @@ const futureDates = [
         assets: "pHEX-L2"
     },
     */
-    {
-        date: new Date("October 01, 2025"),
-        label: "October 01, 2025",
-        assets: "pHEX-L2"
-    },    
+       
     {
         date: new Date("December 31, 2025"),
         label: "December 31, 2025",
@@ -48,6 +44,11 @@ const futureDates = [
         label: "March 31, 2026",
         assets: "pHEX-L2"
     },
+    {
+        date: new Date("April 01, 2025"),
+        label: "April 01, 2025",
+        assets: "pHEX-L2"
+    }, 
     {
         date: new Date("June 20, 2026"),
         label: "June 20, 2026",
