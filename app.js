@@ -46,7 +46,7 @@ const futureDates = [
     },
     {
         date: new Date("April 01, 2026"),
-        label: "April 01, 2025",
+        label: "April 01, 2026",
         assets: "pHEX-L2"
     }, 
     {
