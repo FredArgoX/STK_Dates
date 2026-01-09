@@ -61,6 +61,11 @@ const futureDates = [
         assets: "pHEX-L2"
     },
     {
+        date: new Date("July 10, 2026"),
+        label: "July 10, 2026",
+        assets: "pHEX-L2"
+    },
+    {
         date: new Date("July 31, 2026"),
         label: "July 31, 2026",
         assets: "pHEX-L2"
