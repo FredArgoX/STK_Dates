@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ethereum Token Balance Checker</title>
+
+  <!-- Ethers.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.8.1/dist/ethers.umd.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: #020617;
+      padding: 25px;
+      border-radius: 12px;
+      width: 380px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+    }
+
+    input {
+      background: #1e293b;
+      color: white;
+    }
+
+    button {
+      background: #2563eb;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .result {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 16px;
+      min-height: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>USDC Balance Checker</h1>
+
+    <input
+      id="wallet"
+      type="text"
+      placeholder="Enter Ethereum wallet address"
+    />
+
+    <button onclick="getBalance()">Check Balance</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    // USDC contract on Ethereum mainnet
+    const USDC_ADDRESS = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48";
+
+
+    // Minimal ERC-20 ABI
+    const ERC20_ABI = [
+      "function balanceOf(address) view returns (uint256)",
+      "function decimals() view returns (uint8)"
+    ];
+
+    // Public Ethereum RPC
+    const provider = new ethers.JsonRpcProvider(
+        "https://eth.llamarpc.com"
+    );
+
+
+    async function getBalance() {
+      const wallet = document.getElementById("wallet").value;
+      const result = document.getElementById("result");
+
+      if (!ethers.isAddress(wallet)) {
+        result.textContent = "❌ Invalid Ethereum address";
+        return;
+      }
+
+      try {
+        result.textContent = "⏳ Loading...";
+
+        const token = new ethers.Contract(
+          USDC_ADDRESS,
+          ERC20_ABI,
+          provider
+        );
+
+        const rawBalance = await token.balanceOf(wallet);
+        const decimals = await token.decimals();
+
+        const formatted = ethers.formatUnits(rawBalance, decimals);
+
+        result.textContent = `💵 USDC Balance: ${formatted}`;
+      } catch (err) {
+        result.textContent = "⚠️ Error fetching balance";
+        console.error(err);
+      }
+    }
+  </script>
+
+</body>
+</html>
